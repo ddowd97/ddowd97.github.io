@@ -5,9 +5,34 @@ customH1 {
     text-align: center;
 }
 
-#customDiv {
-    min-height: 98vh; /* minimum height = screen height */
+.focusParent {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+.focusChild {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+body {
+    background-color: #111
+}
+
+p {
+    color: whitesmoke;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  a:link {
+      color: #CC00A1;
+  }
