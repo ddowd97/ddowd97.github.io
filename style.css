@@ -1,0 +1,13 @@
+customH1 {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30pt;
+    width: 100%;
+    text-align: center;
+}
+
+#customDiv {
+    min-height: 98vh; /* minimum height = screen height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
