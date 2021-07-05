@@ -57,6 +57,14 @@ p {
     color: whitesmoke;
 }
 
+center {
+    color: whitesmoke;
+}
+
+#last_updated {
+    color: whitesmoke;
+}
+
 .center {
     display: block;
     margin-left: auto;
@@ -86,7 +94,6 @@ a:active {
     justify-content: center;
     align-items: center;
     position: fixed;
-    left: 47%;
     bottom: 0;
     margin-bottom: 10px;
 }

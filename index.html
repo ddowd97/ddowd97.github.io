@@ -80,5 +80,11 @@
 <footer class="footer">
     <a href="https://www.linkedin.com/in/davidmilesdowd" target="_blank" class="footer-element media"><img class="center" src="LinkedIn.png" width=40px;></a>
     <a href="https://github.com/ddowd97/" target="_blank" class="footer-element media"><img class="center" src="GitHub.png" width=40px;></a>
+    <div id="last_updated"><center>Last updated: xx/xx/xxxx </center></div>
+    <script type="text/javascript">
+        var m = "Last updated: " + document.lastModified;
+        var p = m.length-8;
+        document.getElementById('last_updated').innerHTML = "<center>" + m.substring(p,0) + "</center>";
+    </script>
 </footer>
 </html>
