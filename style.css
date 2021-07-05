@@ -63,3 +63,11 @@ a:active {
     margin-left: 5px;
     margin-right: 5px;
 }
+
+.media {
+    transition: all .1s ease-in-out;
+}
+
+.media:hover {
+    transform: scale(1.1);
+}
