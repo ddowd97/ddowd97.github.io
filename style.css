@@ -3,18 +3,50 @@ customH1 {
     font-size: 30pt;
     width: 100%;
     text-align: center;
+    color: whitesmoke;
+}
+
+button {
+    width: 130px;
+    color: #1E4D9B;
+    background-color: #1E4D9B;
+}
+
+button:hover {
+    color: #1E4DCC;
+    background-color: #1E4DCC;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.accordion {
+    font-family: 'Times New Roman', Times, serif;
+    color: #1E4D9B;
+    background-color: #1E4D9B;
+    cursor: pointer;
+    width: 100%;
+    border: 2px;
+    outline: none;
+    transition: 0.4s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+.panel {
+    display: none;
+    overflow: hidden;
 }
 
 .focusParent {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.focusChild {
-    position: absolute;
-    top: 50%;
-    transform: translate(0, -50%);
+    margin-top: 12%;
 }
 
 body {
@@ -53,7 +85,7 @@ a:active {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    position: fixed;
     left: 47%;
     bottom: 0;
     margin-bottom: 10px;
@@ -70,4 +102,17 @@ a:active {
 
 .media:hover {
     transform: scale(1.1);
+}
+
+/* Latest compiled and minified CSS included as External Resource*/
+
+/* Optional theme */
+@import url('//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css');
+
+body {
+    margin: 10px;
+}
+
+.panel-group {
+  cursor: pointer;
 }

@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0058)https://engineering.purdue.edu/477grp15/Dabble/dabble.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* CSS Sample from Source: https://www.w3schools.com/howto/howto_js_accordion.asp */
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+/* CSS Sample from Source: https://www.w3schools.com/howto/howto_js_accordion.asp */
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+/* CSS Sample from Source: https://www.w3schools.com/howto/howto_js_accordion.asp */
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  display: none;
+  overflow: hidden;
+}
+/* CSS Sample from Source: https://www.w3schools.com/html/html_tables.asp */
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+/* CSS Sample from Source: https://www.w3schools.com/html/html_tables.asp */
+td, th {
+  border: 1px solid #cccccc;
+  text-align: left;
+  padding: 8px;
+}
+/* CSS Sample from Source: https://www.w3schools.com/html/html_tables.asp */
+tr:nth-child(even) {
+  background-color: #eeeeee;
+}
+</style>
+
+
+<!--Reconfigurable base tag; used to modify the site root location for root-relative links-->
+<!-- Python SimpleHTTPServer Testing -->
+<!--<base href="http://localhost:8000/" />-->
+<!-- ECE477 preview URL -->
+<!--<base href="https://engineering.purdue.edu/ece477/preview/" />-->
+<!-- ECE477 final URL -->
+<!--<base href="https://engineering.purdue.edu/477grp15/">--><base href=".">
+
+<!--Content-->
+<title>Dabble</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="George Hadley">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<!--CSS-->
+<link rel="stylesheet" href="./Dabble_files/default.css" type="text/css" media="all">
+<link rel="stylesheet" href="./Dabble_files/responsive.css">
+<link rel="stylesheet" href="./Dabble_files/styles_new.css">
+<link rel="stylesheet" href="./Dabble_files/content.css">
+<!--[if IE 6]>
+<link href="default_ie6.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+
+</head>
+<body>
+<div id="wrapper_site">
+    <div id="wrapper_page">
+    <!-- Instantiate global site header.-->
+    <div id="header"><div id="wrapper">
+    <div id="header">
+		<div id="logo">
+      <a href="/index.html"><button style="margin-top: 10px; cursor: pointer;"><h1 style="text-align: left;">Back</h1></button></a>
+			<h2>Digital Systems Senior Design</h2>
+            <h4>ECE477 Spring 2020 Team 15</h4>
+            <h4 style="color: red;"><b>NOTE: Python scripts were written to operate on a hosted server using CGI and consequently do not execute as intended on this remote host (github.io). Will be fixed eventually.</b></h4>
+		</div>
+    </div>
+</div></div>
+    
+    <!-- Instantiate site global navigation bar.-->
+    <div id="menu"><div id="menu">
+    <div class="container">
+    </div>
+</div>
+
+<script src="./Dabble_files/jquery.js.download"></script>
+<script src="./Dabble_files/jquery-migrate-1.1.1.js.download"></script>
+<script src="./Dabble_files/superfish.js.download"></script>
+<script src="./Dabble_files/jquery.mobilemenu.js.download"></script>
+<script src="./Dabble_files/jquery.cookie.js.download"></script>
+<script src="./Dabble_files/jquery.easing.1.3.js.download"></script>
+<script src="./Dabble_files/jquery.ui.totop.js.download"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.17.0/full/pyodide.js"></script>
+<script src="./Dabble_files/jquery.equalheights.js.download"></script></div>
+
+    <!-- Instantiate a page banner image. Page banner images should be 1100x350px and should be located within the local
+        img folder located at this directory level. -->
+    <div id="banner">
+        <img src="./Dabble_files/BannerImgExample.jpg">
+    </div>
+
+    <!-- Instantiate "tools" needed for a page. Tools are premade functional blocks that can be used to build a page,
+        and include things such as a file lister (for listing out homework assignments or tutorials)
+    -->
+    <div id="content">
+        <button class="accordion">Rules of Dabble</button>
+        <div class="panel" style="display: none;">
+          <p>1) Players take turns placing one word at a time on the Dabble board.<br>
+             2) Players may pass their turn, if they so choose.<br>
+             3) Words placed on the board must be defined in the current dictionary.<br>
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a) Placed words must not, as a consequence, form other words that are not defined in the current dictionary.<br>
+             4) The first word placed must use the center of the board.<br>
+             5) Words placed on the board must be connected to all other previously placed words.<br>
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a) Placed words must either EXTEND, HOOK, or be PARALLEL to previous words.<br>
+             6) The game ends when the score limit [if specified] is reached or when six consecutive passes occur.
+          </p>
+        </div>
+
+        <button class="accordion">Scoring System</button>
+        <div class="panel">
+          <p>1) A bonus space (<b>DL</b>, <b>TL</b>, <b>DW</b>, <b>TW</b>) is only used one time - when a new letter is placed on it.<br>
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a) <b>DL</b> = Double Letter, <b>TL</b> = Triple Letter, <b>DW</b> = Double Word, <b>TW</b> = Triple Word<br>
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i) The center of the board is a <b>DW</b> bonus space.<br>
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b) Letter bonuses are applied before word bonuses - word bonuses come last!<br>
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c) Word bonuses are applied to all words directly formed by that placed tile.<br>
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i) Word bonuses are stackable - 2 <b>DW</b> ("Double-Double") is a x4 bonus, 2 <b>TW</b> ("Triple-Triple") is a x9 bonus!<br>
+             2) Using all 7 tiles in one turn is a BINGO and awards 50 extra points (after bonus space calculation)!<br>
+             3) No points are deducted when passing a turn.
+          </p>
+        </div>
+
+        <button class="accordion">Letter Point Distribution</button>
+        <div class="panel">
+          <p></p><table>
+              <tbody><tr><th>Letter</th><th>Points</th></tr>
+              <tr><td>A</td><td>1</td></tr>
+              <tr><td>B</td><td>3</td></tr>
+              <tr><td>C</td><td>3</td></tr>
+              <tr><td>D</td><td>2</td></tr>
+              <tr><td>E</td><td>1</td></tr>
+              <tr><td>F</td><td>4</td></tr>
+              <tr><td>G</td><td>2</td></tr>
+              <tr><td>H</td><td>4</td></tr>
+              <tr><td>I</td><td>1</td></tr>
+              <tr><td>J</td><td>8</td></tr>
+              <tr><td>K</td><td>5</td></tr>
+              <tr><td>L</td><td>1</td></tr>
+              <tr><td>M</td><td>3</td></tr>
+              <tr><td>N</td><td>1</td></tr>
+              <tr><td>O</td><td>1</td></tr>
+              <tr><td>P</td><td>3</td></tr>
+              <tr><td>Q</td><td>10</td></tr>
+              <tr><td>R</td><td>1</td></tr>
+              <tr><td>S</td><td>1</td></tr>
+              <tr><td>T</td><td>1</td></tr>
+              <tr><td>U</td><td>1</td></tr>
+              <tr><td>V</td><td>4</td></tr>
+              <tr><td>W</td><td>4</td></tr>
+              <tr><td>X</td><td>8</td></tr>
+              <tr><td>Y</td><td>4</td></tr>
+              <tr><td>Z</td><td>10</td></tr>
+             </tbody></table>
+          <p></p>
+        </div>
+        <!-- The following <script> is borrowed from the source https://www.w3schools.com/howto/howto_js_accordion.asp -->
+        <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+          acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+              panel.style.display = "none";
+            } else {
+              panel.style.display = "block";
+            }
+          });
+        }
+        </script>
+        <br><br>
+
+        <form action="var/www/cgi-bin/loadDabble.py" method="get">
+            <input type="Submit" value="REFRESH">
+        </form>
+        <h2>Dabble Dictionary Support</h2>
+        <form action="var/www/cgi-bin/chooseDict.py" method="get">
+            Collins Dictionary<input type="radio" name="dict" value="1" checked=""><br>
+            Oxford English Dictionary<input type="radio" name="dict" value="2"><br>
+            Word Dump <i>(<b>Experimental</b> - Some Undefined/Obscure Words, Longer Processing Time)</i><input type="radio" name="dict" value="3"><br>
+            <input type="Submit" value="Choose my dictionary!">
+        </form>
+        <br>
+        <h2>Dabble Word Checker</h2>
+        <form action="var/www/cgi-bin/wordCheck.py" method="get">
+            Please enter your word (e.g. "pencil"):<br>
+            <input name="wordCheckText" type="Text" size="3" maxlength="7">&nbsp;<input type="Submit" value="Check my word!">
+        </form>
+        <br>
+        <h2>Dabble Word Recommender</h2>
+        <form action="var/www/cgi-bin/permuteCheck.py" method="get">
+            Please enter your 7 letters (e.g. 'abcdefg'):<br>
+            <input type="Text" size="3" maxlength="7" name="temp">&nbsp;<input type="Submit" value="Recommend me a word!">
+        </form>
+        <br>
+        <h2>Dabble Board Verifier</h2>
+        <form action="var/www/cgi-bin/boardCheck.py" method="get">
+            <!--
+            <img src="Team/progress/img/board1.png" width=281 height=142>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <img src="Team/progress/img/board2.png" width=281 height=142>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <img src="Team/progress/img/board3.png" width=281 height=142><br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Board1<input type="radio" name="board" value="1" checked>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            &emsp;&emsp;                             Board2<input type="radio" name="board" value="2">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                                                      Board3<input type="radio" name="board" value="3"><br><br>
+            -->
+            <img src="./Dabble_files/boardImage.png" width="280" height="280" class="center"><br>
+            <p style="text-align:center">Current Board<input type="radio" name="board" value="1" checked=""></p><br>
+            <p style="text-align:center">(Enter <b>CTRL + F5</b> if the image does not refresh on your screen.)
+            </p><p style="text-align:center"><input type="Submit" value="Check my board!">
+        </p></form>
+    </div>
+
+    <!-- Instantiate global footer. Any changes to the footer should be made through the top-level file "footer.html" -->
+    <div id="footer"><div id="footer">
+	<p>
+	    Copyright (c) 2013-2014 <u><a href="http://purdue.edu/">Purdue University</a></u>. All rights reserved. Website 
+        powered by Boilerplate v1.3.</u>. 
+	    <!--Automatically update last updated field based on when document was modified.
+		This applies to the pages the global footer is inserted into as well as the footer object itself.-->
+	    </p><div id="last_updated"><center>Last updated: 04/29/2020 </center></div>
+	    <script type="text/javascript">
+            var m = "Last updated: " + document.lastModified;
+            var p = m.length-8;
+            document.getElementById('last_updated').innerHTML = "<center>" + m.substring(p,0) + "</center>";
+	    </script>
+	<p></p>
+</div>
+</div>
+    </div>
+</div>
+
+<!--JS-->
+<script src="./Dabble_files/jquery.js.download"></script>
+<script src="./Dabble_files/jquery-migrate-1.1.1.js.download"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#header").load("header.html");
+    $("#menu").load("navbar_new.html");
+    $("#member1").load("Team/czatloko.html");
+    $("#member2").load("Team/delagarm.html");
+    $("#member3").load("Team/wilso822.html");
+    $("#member4").load("Team/ddowd.html");
+    $("#footer").load("footer.html");
+});
+</script>
+
+
+<a href="https://engineering.purdue.edu/477grp15/#" id="toTop" style="right: 50%; margin-right: -66.5373px; display: none;"><span id="toTopHover"></span></a><img id="hzDownscaled" style="position: absolute; top: -10000px;"></body></html>

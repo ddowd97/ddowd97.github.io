@@ -7,10 +7,67 @@
 <style>
 </style>
 <script src=""></script>
-<body>
 
+<header class="header">
+    <customH1 style='text-align: center;'><u>Qualifications</u></customH1> <!-- WIP -->
+    <!-- Maybe add previous projects (e.g. Dabble, since I stored the web material for that) -->
+</header>
+
+<body>
 <div class="focusParent">
-    <div class="focusChild">
+    <div style="float: left; width: 10%; margin-right: 5%;">
+        <button class="accordion"><p style='text-align: center;'>About</p></button>
+        <div class="panel" style="display: none;">
+          <p> Purdue 2020 Graduate in Computer Engineering; Programmer; Nerd
+          </p>
+        </div>
+
+        <button class="accordion"><p style='text-align: center;'>Contact</p></button>
+        <div class="panel">
+          <p>Please reverse the following (to prevent web scraping):<br><br>moc.liamg@79dwodd
+          </p>
+        </div>
+
+        <button class="accordion"><p style='text-align: center;'>Projects</p></button>
+        <div class="panel">
+            <hr>
+            <div> 
+                <a href="Dabble/Dabble.html">
+                    <button class="accordion" style="background-color: burlywood !important;"><p style='text-align: center; color: black !important;'>Dabble</p></button>
+                </a>
+                <!--img src="Dabble.jpg" style="height: 100%;"-->
+            </div>
+            <div>
+                <a href="https://github.com/ddowd97/Python-Image-Morpher/" target="_blank">
+                <button class="accordion" style="background-color: steelblue !important;"><p style='text-align: center;'>Python Image Morpher</p></button>
+            </a>
+            <!--img src="PIM.png" style="height: 100%;"-->
+            </div>
+        </div>
+
+        
+        <script>
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+        
+            for (i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+                });
+            }
+        </script>
+
+        <!--<p style='text-align: center;'>About</p><br>
+        <p style='text-align: center;'>Contact</p><br>
+        <p style='text-align: center;'><a href="Dabble/Dabble.html" target="_blank">Dabble</a></p>-->
+    </div>
+    <div>
     <p style='text-align: center;'>Hello World.</p><br>
     <p style='text-align: center;'>Welcome to my.. <i>fancy</i>.. website. As you can see, I haven't gotten around to finishing it yet... TBD.</p>
     <p style='text-align: center;'>In the meantime, please take a look at my latest project, below, which has recently been updated to v2.0.</p><br>
