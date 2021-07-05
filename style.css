@@ -31,8 +31,35 @@ p {
     margin-right: auto;
     margin-top: auto;
     margin-bottom: auto;
-  }
+}
 
-  a:link {
-      color: #CC00A1;
-  }
+a:link {
+    color: #CC00A1;
+}
+
+a:visited {
+    color: #CC00A1;
+}
+
+a:hover {
+    color: #EC00AA;
+}
+
+a:active {
+    color: #FFFFFF;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 47%;
+    bottom: 0;
+    margin-bottom: 10px;
+}
+
+.footer-element {
+    margin-left: 5px;
+    margin-right: 5px;
+}
