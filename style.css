@@ -15,6 +15,7 @@ button {
 button:hover {
     color: #1E4DCC;
     background-color: #1E4DCC;
+    cursor: pointer;
 }
 
 .header {
@@ -26,20 +27,61 @@ button:hover {
 
 .accordion {
     font-family: 'Times New Roman', Times, serif;
-    color: #1E4D9B;
-    background-color: #1E4D9B;
-    cursor: pointer;
     width: 100%;
-    border: 2px;
     outline: none;
-    transition: 0.4s;
     margin-top: 5px;
     margin-bottom: 5px;
   }
 
-.panel {
-    display: none;
+.accordion .block {
+    position: relative;
+    color: #1E4D9B;
+    background-color: #1E4D9B;
+    border-radius: 10px;
+    outline: none;
+}
+
+.accordion .block .block-label {
+    position: relative;
+    padding: 10px;
+    color: whitesmoke;
+    cursor: pointer;
+}
+
+.accordion .block .block-label:hover {
+    background-color: #2061c9;
+    border-radius: 10px;
+    -webkit-transition: background-color 100ms linear;
+    -ms-transition: background-color 100ms linear;
+    transition: background-color 100ms linear;
+}
+
+.accordion .block .block-label::before {
+    content: '+';
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    font-size: 1em;
+}
+
+.accordion .block.active .block-label::before {
+    content: '-';
+    right: 11px;
+}
+
+
+.accordion .block .block-contents {
+    position: relative;
+    height: 0;
     overflow: hidden;
+    transition: 0.5s;
+    overflow-y: none;
+}
+
+.accordion .block.active .block-contents {
+    height: 120px;
+    padding: 10px;
 }
 
 .focusParent {

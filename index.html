@@ -15,58 +15,59 @@
 
 <body>
 <div class="focusParent">
-    <div style="float: left; width: 10%; margin-right: 5%;">
-        <button class="accordion"><p style='text-align: center;'>About</p></button>
-        <div class="panel" style="display: none;">
-          <p> Purdue 2020 Graduate in Computer Engineering; Programmer; Nerd
-          </p>
+    <div style="float: left; width: 20%; margin-right: 5%;" class="accordion">
+        <div class="block">
+            <div class="block-label">About</div>
+            <div class="block-contents"><p> Purdue 2020 Graduate in Computer Engineering; Programmer; Nerd. Database IT Lead for Molina Healthcare through Infosys Ltd. An enthusiast for optimization in all things programming.</p></div>
         </div>
-
-        <button class="accordion"><p style='text-align: center;'>Contact</p></button>
-        <div class="panel">
-          <p>Please reverse the following (to prevent web scraping):<br><br>moc.liamg@79dwodd
-          </p>
+        <br>
+        <div class="block">
+            <div class="block-label">Contact</div>
+            <div class="block-contents"><p>Please reverse the email address (to prevent scraping):<br><br>David Dowd<br>moc.liamg@79dwodd</p></div>
         </div>
-
-        <button class="accordion"><p style='text-align: center;'>Projects</p></button>
-        <div class="panel">
-            <hr>
-            <div> 
-                <a href="Dabble/Dabble.html">
-                    <button class="accordion" style="background-color: burlywood !important;"><p style='text-align: center; color: black !important;'>Dabble</p></button>
+        <br>
+        <div class="block">
+            <div class="block-label">Projects</div>
+            <div class="block-contents">
+                <div> 
+                    <a href="Dabble/Dabble.html">
+                        <button class="accordion" style="background-color: burlywood !important;"><p style='text-align: center; color: black !important;'>Dabble</p></button>
+                    </a>
+                    <!--img src="Dabble.jpg" style="height: 100%;"-->
+                </div>
+                <div>
+                    <a href="https://github.com/ddowd97/Python-Image-Morpher/" target="_blank">
+                    <button class="accordion" style="background-color: steelblue !important;"><p style='text-align: center;'>Python Image Morpher</p></button>
                 </a>
-                <!--img src="Dabble.jpg" style="height: 100%;"-->
-            </div>
-            <div>
-                <a href="https://github.com/ddowd97/Python-Image-Morpher/" target="_blank">
-                <button class="accordion" style="background-color: steelblue !important;"><p style='text-align: center;'>Python Image Morpher</p></button>
-            </a>
-            <!--img src="PIM.png" style="height: 100%;"-->
+                <!--img src="PIM.png" style="height: 100%;"-->
+                </div>
             </div>
         </div>
-
-        
-        <script>
-            var acc = document.getElementsByClassName("accordion");
-            var i;
-        
-            for (i = 0; i < acc.length; i++) {
-                acc[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var panel = this.nextElementSibling;
-                if (panel.style.display === "block") {
-                    panel.style.display = "none";
-                } else {
-                    panel.style.display = "block";
-                }
-                });
-            }
-        </script>
-
-        <!--<p style='text-align: center;'>About</p><br>
-        <p style='text-align: center;'>Contact</p><br>
-        <p style='text-align: center;'><a href="Dabble/Dabble.html" target="_blank">Dabble</a></p>-->
     </div>
+    <script>
+        var acc = document.getElementsByClassName("block");
+        var block = document.getElementsByClassName('block-contents');
+
+        for (var i = 0; i < acc.length; i++) {
+            acc[i].onclick = function() {
+                var setClasses = !this.classList.contains('active');
+                setClass(acc, 'active', 'remove');
+                setClass(block, 'show', 'remove');
+
+                if (setClasses) {
+                    this.classList.toggle("active");
+                    this.nextElementSibling.classList.toggle("show");
+                }
+            }
+        }
+
+        function setClass(els, className, fnName) {
+            for (var i = 0; i < els.length; i++) {
+                els[i].classList[fnName](className);
+            }
+        }
+    </script>
+
     <div>
     <p style='text-align: center;'>Hello World.</p><br>
     <p style='text-align: center;'>Welcome to my.. <i>fancy</i>.. website. As you can see, I haven't gotten around to finishing it yet... TBD.</p>
